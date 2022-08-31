@@ -14,6 +14,6 @@ class _TodosPageState extends State<TodosPage> {
       body: Center(
         child: Text('TODOS'),
       ),
-    )
+    );
   }
 }
