@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_to_do/models/todo_model.dart';
+import 'package:flutter_to_do/providers/providers.dart';
 import 'package:flutter_to_do/providers/todo_filter.dart';
 import 'package:flutter_to_do/providers/todo_list.dart';
 import 'package:flutter_to_do/providers/todo_search.dart';
@@ -24,7 +25,15 @@ class FilteredTodosState {
 }
 
 class FilteredTodos with ChangeNotifier {
-  FilteredTodosState _state = FilteredTodosState.initial();
+  // FilteredTodosState _state = FilteredTodosState.initial();
+  late FilteredTodosState _state;
+  final List<Todo> initialFilteredTodos;
+  FilteredTodos({
+    required this.initialFilteredTodos,
+  }) {
+    _state = FilteredTodosState(filteredTodos: initialFilteredTodos);
+  }
+
   FilteredTodosState get state => _state;
 
   void update(
